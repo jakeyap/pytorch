@@ -14,10 +14,14 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 # Load pre-trained model tokenizer (vocabulary)
+print('Loading pre-trained model tokenizer')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 # Tokenize input
+# CLS means classification. SEP means sentence separator
 text = "[CLS] Who was Jim Henson ? [SEP] Jim Henson was a puppeteer [SEP]"
+print("text is: ", text)
+print('Tokenize input')
 tokenized_text = tokenizer.tokenize(text)
 
 # Mask a token that we will try to predict back with `BertForMaskedLM`
